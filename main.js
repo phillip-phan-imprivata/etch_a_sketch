@@ -10,7 +10,7 @@ function newSketch(e){
     container = document.querySelector(".container");
     container.innerHTML = "";
     container.style.background = "white";
-    userInput = prompt("Enter amount of rows and columns...");
+    userInput = prompt("Choose how many squares per side!");
    
     //create webpage with grid of square divs
     let gridArea = userInput * userInput;
