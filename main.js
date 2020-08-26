@@ -22,11 +22,15 @@ function createGrid(size){
 
 //delete old grid and prompt new grid
 function newSketch(e){
-    const container = document.querySelector(".container");
-    container.innerHTML = "";
     let userInput = prompt("Choose how many squares per side!");
 
-    createGrid(userInput);
+    if (isNaN(userInput) == true){
+        alert("That is not a number!");
+    } else{
+        const container = document.querySelector(".container");
+        container.innerHTML = "";
+        createGrid(userInput);
+    };
 }
 
 //toggle border
