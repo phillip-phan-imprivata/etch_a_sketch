@@ -2,6 +2,10 @@ html, body{
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow: hidden;
+}
+
+body{
     background: crimson;
 }
 
@@ -9,18 +13,36 @@ html, body{
     display: block;
     margin: auto;
     text-align: center;
+    margin-top: 10px;
 }
 
-#resetButton{
+#buttons button{
+    margin-right: 15px;
     outline: none;
-    background: #1fcecb;
+    background-color: #1fcecb;
     border-radius: 10px;
     padding: 5px 10px;
     border: none;
-    margin-right: 10px;
+    box-shadow: 0 5px #888;
+    cursor: pointer;
+}
+
+#buttons input{
+    cursor: pointer;
+}
+
+#buttons button:hover{
+    background-color: #18a29f;
+}
+
+#buttons button:active{
+    background-color: #18a29f;
+    box-shadow: 0 2px #555;
+    transform: translateY(5px);
 }
 
 .container{
+    background: white;
     position: absolute;
     display: grid;
     margin: auto;
@@ -32,13 +54,21 @@ html, body{
     left: 0;
 }
 
+.grid{
+    border: 1px solid black;
+}
+
+.borderless{
+    border: none;
+}
+
 @media screen and (max-width: 600px) {
     .container{
         position: absolute;
         display: grid;
         margin: auto;
-        height: 300px;
-        width: 300px;
+        height: 320px;
+        width: 320px;
         top: 53%;
         bottom: 47%;
         right: 0;

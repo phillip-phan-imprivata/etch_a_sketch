@@ -1,36 +1,55 @@
-let container;
-let userInput;
-let grid;
-
-const reset = document.querySelector("#resetButton");
-reset.addEventListener("click", newSketch)
-
-//clear grid and prompt new grid
-function newSketch(e){
-    container = document.querySelector(".container");
-    container.innerHTML = "";
-    container.style.background = "white";
-    userInput = prompt("Choose how many squares per side!");
-   
-    //create webpage with grid of square divs
-    let gridArea = userInput * userInput;
-
-    for (i = 0; i < gridArea; i++){
-        container = document.querySelector(".container");
-        container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
-        container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
-        grid = document.createElement("div");
-        grid.setAttribute("style", "border: 1px solid black");
-        grid.setAttribute("class", "grid");
-        container.appendChild(grid);
-    }
-}
-
-const colorChoice = document.querySelector("input");
+//create initial grid
+createGrid(16);
 
 //change color of square when mouse passes over
+const colorChoice = document.querySelector("input");
 hover = document.querySelector(".container");
 hover.addEventListener("mouseover", function(e) {
     event.target.style.background = `${colorChoice.value}`;
 });
 
+//create grid
+function createGrid(size){
+    for (i = 0; i < size * size; i++){
+        const container = document.querySelector(".container");
+        container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+        const grid = document.createElement("div");
+        grid.setAttribute("class", "grid");
+        container.appendChild(grid);
+    };    
+}
+
+//delete old grid and prompt new grid
+function newSketch(e){
+    const container = document.querySelector(".container");
+    container.innerHTML = "";
+    let userInput = prompt("Choose how many squares per side!");
+
+    createGrid(userInput);
+}
+
+//toggle border
+function toggleBorder(){
+    const grid = Array.from(document.querySelectorAll(".grid"));
+    grid.forEach((item) => {
+        item.classList.toggle("borderless");
+    });
+}
+
+//clear grid
+function clearDrawing(){
+    const grid = Array.from(document.querySelectorAll(".grid"));
+    grid.forEach((item) => {
+        item.setAttribute("style", "background: white")
+    });
+}
+
+const newGrid = document.querySelector("#newGrid");
+newGrid.addEventListener("click", newSketch)
+
+const toggleGrid = document.querySelector("#toggleGrid");
+toggleGrid.addEventListener("click", toggleBorder);
+
+const clearGrid = document.querySelector("#clearGrid");
+clearGrid.addEventListener("click", clearDrawing);
