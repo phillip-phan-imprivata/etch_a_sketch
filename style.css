@@ -13,7 +13,6 @@ body{
     display: block;
     margin: auto;
     text-align: center;
-    margin-top: 10px;
 }
 
 #buttons button{
@@ -27,8 +26,12 @@ body{
     cursor: pointer;
 }
 
-#buttons input{
-    cursor: pointer;
+#buttons span{
+    font: 30px Comic Sans MS, arial, serif;
+    font-weight: bold;
+    color: #FBC723;
+    margin-right: 40px;
+    text-shadow: #FFFCA8 1px 1px 0px, #9C9C9C 3px 3px 0px;
 }
 
 #buttons button:hover{
@@ -39,6 +42,10 @@ body{
     background-color: #18a29f;
     box-shadow: 0 2px #555;
     transform: translateY(5px);
+}
+
+#buttons input{
+    cursor: pointer;
 }
 
 .container{

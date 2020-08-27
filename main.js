@@ -26,6 +26,8 @@ function newSketch(e){
 
     if (isNaN(userInput) == true){
         alert("That is not a number!");
+    } else if (userInput == null){
+        return;
     } else{
         const container = document.querySelector(".container");
         container.innerHTML = "";
